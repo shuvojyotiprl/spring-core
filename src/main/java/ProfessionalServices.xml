@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="Acdmc1" class="com.shuvo.happylearning.di.Academics">
+		<constructor-arg name="programmeName" value="B.Tech"
+			type="String">
+		</constructor-arg>
+
+		<constructor-arg name="duration" value="4" type="int">
+		</constructor-arg>
+
+		<constructor-arg name="isFullTime" value="true"
+			type="boolean">
+		</constructor-arg>
+	</bean>
+
+	<bean id="Acdmc2" class="com.shuvo.happylearning.di.Academics">
+		<constructor-arg name="programmeName" value="M.Tech"
+			type="String">
+		</constructor-arg>
+
+		<constructor-arg name="duration" value="2" type="int">
+		</constructor-arg>
+
+		<constructor-arg name="isFullTime" value="true"
+			type="boolean">
+		</constructor-arg>
+	</bean>
+	
+	<bean id="Acdmc3" class="com.shuvo.happylearning.di.Academics">
+		<constructor-arg name="programmeName" value="B.SC"
+			type="String">
+		</constructor-arg>
+
+		<constructor-arg name="duration" value="3" type="int">
+		</constructor-arg>
+
+		<constructor-arg name="isFullTime" value="true"
+			type="boolean">
+		</constructor-arg>
+	</bean>
+
+	<bean id="Acdmc4" class="com.shuvo.happylearning.di.Academics">
+		<constructor-arg name="programmeName" value="M.Sc"
+			type="String">
+		</constructor-arg>
+
+		<constructor-arg name="duration" value="2" type="int">
+		</constructor-arg>
+
+		<constructor-arg name="isFullTime" value="false"
+			type="boolean">
+		</constructor-arg>
+	</bean>
+
+
+
+	<bean id="ps1"
+		class="com.shuvo.happylearning.di.EngineeringServices">
+		<constructor-arg name="decepline"
+			value="Computer Science"></constructor-arg>
+
+		<constructor-arg name="subcategories">
+			<list>
+				<value>Software Engineer</value>
+				<value>QA Engineer</value>
+				<value>Business Intelligence</value>
+				<value>Developer</value>
+				<value>Server Administrator</value>
+				<value>Automation Engineer</value>
+				<value>DBA</value>
+			</list>
+		</constructor-arg>
+
+		<constructor-arg name="academics">
+			<list>
+				<ref bean="Acdmc1" />
+				<ref bean="Acdmc2" />
+			</list>
+		</constructor-arg>
+
+		<constructor-arg name="academicOpenings">
+			<map>
+				<entry key="B.Tech" value="23"></entry>
+				<entry key="M.Tech" value="11"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="ps2" class="com.shuvo.happylearning.di.TeachingService" >
+		<property name="type" value="Permanent"></property>
+		<property name="liSubjects">
+			<list>
+				<value>Java</value>
+				<value>C#</value>
+				<value>C++</value>
+				<value>Angular</value>
+			</list>
+		</property>
+		<property name="liAcademics">
+			<list>
+				<ref bean="Acdmc3"/>
+				<ref bean="Acdmc4"/>
+			</list>
+		</property>
+		<property name="institute" ref="institute">
+			
+		</property>
+	</bean>
+
+	<bean id="institute" class="com.shuvo.happylearning.di.Institution">
+		<property name="instituteName" value="FIEM"></property>
+		<property name="affiliatedUniversity" value="WBUT"></property>
+	</bean>
+
+
+
+</beans>
