@@ -20,6 +20,12 @@ public class MainClass {
 		Tringle tringle = (Tringle) context1.getBean("tringle");
 
 		System.out.println(tringle);
+		
+		ApplicationContext context2 = new ClassPathXmlApplicationContext("FactoryImpl.xml");
+		
+		MyObjectFactory factory = (MyObjectFactory) context2.getBean("fact1");
+		
+		System.out.println(factory);
 
 	}
 }
